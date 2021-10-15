@@ -45,14 +45,15 @@
 function startGen() {
 	var gPassLength = getPassLength();
 	console.log("startGen - password length is " + gPassLength);
-	var gPassLower = getPassLower();
-	console.log("startGen - include lowercase? " + gPassLower);
-	var gPassUpper = getPassUpper();
-	console.log("startGen - include uppercase? " + gPassUpper);
-	var gPassNumbers = getPassNumbers();
-	console.log("startGen - include numbers? " + gPassNumbers);
-	var gPassSpecial = getPassSpecial();
-	console.log("startGen - include special? " + gPassSpecial);
+
+	var cPassLower = getPass("lowercase");
+	console.log("lowercase characters? " + cPassLower);
+	var cPassUpper = getPass("uppercase");
+	console.log("uppercase characters? " + cPassUpper);
+	var cPassNumber = getPass("number");
+	console.log("number characters? " + cPassNumber);
+	var cPassSpecial = getPass("special");
+	console.log("special characters? " + cPassSpecial);
 }
 
 function getPassLength() {
@@ -70,24 +71,11 @@ function getPassLength() {
 	return passLength;
 }
 
-function getPassLower() {
-	var passLower = confirm("Should your password have lowercase characters?");
-	return passLower;
-}
-
-function getPassUpper() {
-	var passUpper = confirm("Should your password have uppercase characters?");
-	return passUpper;
-}
-
-function getPassNumbers() {
-	var passNumbers = confirm("Should your password have numeric characters?");
-	return passNumbers;
-}
-
-function getPassSpecial() {
-	var passSpecial = confirm("Should your password have special characters?");
-	return passSpecial;
+function getPass(aspect) {
+	var aspect = confirm(
+		"Should your password have " + aspect + " characters?"
+	);
+	return aspect;
 }
 
 // TEMP - Auto Prompt
