@@ -44,16 +44,28 @@
 
 function startGen() {
 	var gPassLength = getPassLength();
-	console.log("startGen - password length is " + gPassLength);
+	console.log("passLength - password length is " + gPassLength);
 
 	var cPassLower = getPass("lowercase");
-	console.log("lowercase characters? " + cPassLower);
+	console.log("getPass - lowercase characters? " + cPassLower);
+
 	var cPassUpper = getPass("uppercase");
-	console.log("uppercase characters? " + cPassUpper);
+	console.log("getPass - uppercase characters? " + cPassUpper);
+
 	var cPassNumber = getPass("number");
-	console.log("number characters? " + cPassNumber);
+	console.log("getPass - number characters? " + cPassNumber);
+
 	var cPassSpecial = getPass("special");
-	console.log("special characters? " + cPassSpecial);
+	console.log("getPass - special characters? " + cPassSpecial);
+
+	var cOneCheck = oneCheck(cPassLower, cPassUpper, cPassNumber, cPassSpecial);
+	console.log("oneCheck - at least one character type? " + cOneCheck);
+	if (cOneCheck === false) {
+		alert("You have to choose at least one character type.");
+		startGen();
+	} else {
+		console.log("all good");
+	}
 }
 
 function getPassLength() {
@@ -78,6 +90,13 @@ function getPass(aspect) {
 	return aspect;
 }
 
+function oneCheck(w, x, y, z) {
+	if ([w, x, y, z].filter(Boolean).length >= 1) {
+		return true;
+	} else {
+		return false;
+	}
+}
 // TEMP - Auto Prompt
 startGen();
 
