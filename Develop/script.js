@@ -13,7 +13,7 @@
 // // Add event listener to generate button --- from CC
 // generateBtn.addEventListener("click", writePassword());
 
-//===========================map===========================
+// MAP ====================================================
 // take generate button input and start
 // length of password
 //    prompt user for length
@@ -39,7 +39,7 @@
 //    ¯\_(ツ)_/¯
 // write password to page
 
-//==========================vars===========================
+// VARS ===================================================
 // prettier-ignore
 var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -52,7 +52,11 @@ var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 // prettier-ignore
 var specialCharacters = [" ",	"!",	'"',	"#",	"$",	"%",	"&",	"'",	"(",	")",	"*",	"+",	",",	"-",	".",	"/",	":",	";",	"<",	"=",	">",	"?",	"@",	"[",	"\\",	"]",	"^",	"_",	"`",	"{",	"|",	"}",	"~",];
 
-//========================functions========================
+var chosenCharacters = [];
+
+var gPassLength = 0;
+
+// PRIMARY FUNCTION =======================================
 function startGen() {
 	var gPassLength = getPassLength();
 	if (gPassLength === null) {
@@ -79,8 +83,44 @@ function startGen() {
 		startGen();
 	}
 	console.log("startGen - completed USER queries");
+
+	var passAspects = [cPassLower, cPassUpper, cPassNumber, cPassSpecial];
+	console.log(`startGen - password aspects: ${passAspects}`);
+
+	if (passAspects[0]) {
+		chosenCharacters = chosenCharacters.concat(lowercaseCharacters);
+		console.log(chosenCharacters);
+	}
+	if (passAspects[1]) {
+		chosenCharacters = chosenCharacters.concat(uppercaseCharacters);
+		console.log(chosenCharacters);
+	}
+	if (passAspects[2]) {
+		chosenCharacters = chosenCharacters.concat(numberCharacters);
+		console.log(chosenCharacters);
+	}
+	if (passAspects[3]) {
+		chosenCharacters = chosenCharacters.concat(specialCharacters);
+		console.log(chosenCharacters);
+	}
+
+	var chosenCharactersString = chosenCharacters.join("");
+
+	function generatePassword() {
+		var length = gPassLength,
+			charset = chosenCharactersString,
+			retVal = "";
+		for (var i = 0, n = charset.length; i < length; ++i) {
+			retVal += charset.charAt(Math.floor(Math.random() * n));
+		}
+		return retVal;
+	}
+
+	finalPassword = generatePassword();
+	console.log(finalPassword);
 }
 
+// SECONDARY FUNCTIONS ====================================
 function getPassLength() {
 	var passLength = prompt(
 		"How long should your password be?\nPasswords must be between 8-128 characters"
@@ -114,5 +154,5 @@ function oneCheck(w, x, y, z) {
 	}
 }
 
-// TEMP - Auto Prompt
+// TEMP - Auto Prompt =====================================
 startGen();
