@@ -46,6 +46,13 @@ function startGen() {
 	var gPassLength = getPassLength();
 	console.log("startGen - password length is " + gPassLength);
 	var gPassLower = getPassLower();
+	console.log("startGen - include lowercase? " + gPassLower);
+	var gPassUpper = getPassUpper();
+	console.log("startGen - include uppercase? " + gPassUpper);
+	var gPassNumbers = getPassNumbers();
+	console.log("startGen - include numbers? " + gPassNumbers);
+	var gPassSpecial = getPassSpecial();
+	console.log("startGen - include special? " + gPassSpecial);
 }
 
 function getPassLength() {
@@ -56,11 +63,31 @@ function getPassLength() {
 	if (passLength <= 7 || passLength >= 129) {
 		console.log("getPassLength - invalid choice");
 		alert("Passwords must be between 8-128 characters.");
-		getPassLength();
+		var passLength = getPassLength();
 	} else {
 		console.log("getPassLength - valid choice");
-		return passLength;
 	}
+	return passLength;
+}
+
+function getPassLower() {
+	var passLower = confirm("Should your password have lowercase characters?");
+	return passLower;
+}
+
+function getPassUpper() {
+	var passUpper = confirm("Should your password have uppercase characters?");
+	return passUpper;
+}
+
+function getPassNumbers() {
+	var passNumbers = confirm("Should your password have numeric characters?");
+	return passNumbers;
+}
+
+function getPassSpecial() {
+	var passSpecial = confirm("Should your password have special characters?");
+	return passSpecial;
 }
 
 // TEMP - Auto Prompt
