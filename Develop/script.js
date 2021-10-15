@@ -44,6 +44,9 @@
 
 function startGen() {
 	var gPassLength = getPassLength();
+	if (gPassLength === null) {
+		return;
+	}
 	console.log("passLength - password length is " + gPassLength);
 
 	var cPassLower = getPass("lowercase");
@@ -58,9 +61,9 @@ function startGen() {
 	var cPassSpecial = getPass("special");
 	console.log("getPass - special characters? " + cPassSpecial);
 
-	var cOneCheck = oneCheck(cPassLower, cPassUpper, cPassNumber, cPassSpecial);
-	console.log("oneCheck - at least one character type? " + cOneCheck);
-	if (cOneCheck === false) {
+	var gOneCheck = oneCheck(cPassLower, cPassUpper, cPassNumber, cPassSpecial);
+	console.log("oneCheck - at least one character type? " + gOneCheck);
+	if (gOneCheck === false) {
 		alert("You have to choose at least one character type.");
 		startGen();
 	} else {
@@ -73,7 +76,10 @@ function getPassLength() {
 		"How long should your password be?\nPasswords must be between 8-128 characters"
 	);
 	console.log("getPassLength - USER entry: " + passLength);
-	if (passLength <= 7 || passLength >= 129) {
+	if (passLength === null) {
+		alert("Cancelled Password Generation");
+		return passLength;
+	} else if (passLength <= 7 || passLength >= 129) {
 		console.log("getPassLength - invalid choice");
 		alert("Passwords must be between 8-128 characters.");
 		var passLength = getPassLength();
