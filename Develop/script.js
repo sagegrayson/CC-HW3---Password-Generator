@@ -11,8 +11,6 @@ var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 // prettier-ignore
 var specialCharacters = [" ",	"!",	'"',	"#",	"$",	"%",	"&",	"'",	"(",	")",	"*",	"+",	",",	"-",	".",	"/",	":",	";",	"<",	"=",	">",	"?",	"@",	"[",	"\\",	"]",	"^",	"_",	"`",	"{",	"|",	"}",	"~",];
 
-var chosenCharacters = [];
-
 // COLUMBIA CODING ========================================
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -84,6 +82,8 @@ function startGen() {
 
 	var passAspects = [cPassLower, cPassUpper, cPassNumber, cPassSpecial];
 	console.log(`startGen - password aspects: ${passAspects}`);
+	
+	var chosenCharacters = [];
 
 	if (passAspects[0]) {
 		chosenCharacters = chosenCharacters.concat(lowercaseCharacters);
