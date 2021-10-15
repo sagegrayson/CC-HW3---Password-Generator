@@ -14,7 +14,6 @@
 // generateBtn.addEventListener("click", writePassword());
 
 //===========================map===========================
-
 // take generate button input and start
 // length of password
 //    prompt user for length
@@ -40,8 +39,20 @@
 //    ¯\_(ツ)_/¯
 // write password to page
 
-//===========================map===========================
+//==========================vars===========================
+// prettier-ignore
+var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+// prettier-ignore
+var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
+// prettier-ignore
+var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+// prettier-ignore
+var specialCharacters = [" ",	"!",	'"',	"#",	"$",	"%",	"&",	"'",	"(",	")",	"*",	"+",	",",	"-",	".",	"/",	":",	";",	"<",	"=",	">",	"?",	"@",	"[",	"\\",	"]",	"^",	"_",	"`",	"{",	"|",	"}",	"~",];
+
+//========================functions========================
 function startGen() {
 	var gPassLength = getPassLength();
 	if (gPassLength === null) {
@@ -66,9 +77,8 @@ function startGen() {
 	if (gOneCheck === false) {
 		alert("You have to choose at least one character type.");
 		startGen();
-	} else {
-		console.log("all good");
 	}
+	console.log("startGen - completed USER queries");
 }
 
 function getPassLength() {
@@ -103,41 +113,6 @@ function oneCheck(w, x, y, z) {
 		return false;
 	}
 }
+
 // TEMP - Auto Prompt
 startGen();
-
-var specialCharacters = [
-	" ",
-	"!",
-	'"',
-	"#",
-	"$",
-	"%",
-	"&",
-	"'",
-	"(",
-	")",
-	"*",
-	"+",
-	",",
-	"-",
-	".",
-	"/",
-	":",
-	";",
-	"<",
-	"=",
-	">",
-	"?",
-	"@",
-	"[",
-	"\\",
-	"]",
-	"^",
-	"_",
-	"`",
-	"{",
-	"|",
-	"}",
-	"~",
-];
