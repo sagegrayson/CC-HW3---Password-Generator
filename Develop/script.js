@@ -1,17 +1,32 @@
-// // Assignment Code ------------------------- from CC
-// var generateBtn = document.querySelector("#generate");
+// VARS ===================================================
+// prettier-ignore
+var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-// // Write password to the #password input --- from CC
-// function writePassword() {
-// 	console.log("2");
-// 	var password = generatePassword();
-// 	var passwordText = document.querySelector("#password");
+// prettier-ignore
+var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-// 	passwordText.value = password;
-// }
+// prettier-ignore
+var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-// // Add event listener to generate button --- from CC
-// generateBtn.addEventListener("click", writePassword());
+// prettier-ignore
+var specialCharacters = [" ",	"!",	'"',	"#",	"$",	"%",	"&",	"'",	"(",	")",	"*",	"+",	",",	"-",	".",	"/",	":",	";",	"<",	"=",	">",	"?",	"@",	"[",	"\\",	"]",	"^",	"_",	"`",	"{",	"|",	"}",	"~",];
+
+var chosenCharacters = [];
+
+// COLUMBIA CODING ========================================
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+	var password = startGen();
+	var passwordText = document.querySelector("#password");
+
+	passwordText.value = password;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 // MAP ====================================================
 // take generate button input and start
@@ -38,23 +53,6 @@
 // generate password
 //    ¯\_(ツ)_/¯
 // write password to page
-
-// VARS ===================================================
-// prettier-ignore
-var lowercaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-// prettier-ignore
-var uppercaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-
-// prettier-ignore
-var numberCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
-// prettier-ignore
-var specialCharacters = [" ",	"!",	'"',	"#",	"$",	"%",	"&",	"'",	"(",	")",	"*",	"+",	",",	"-",	".",	"/",	":",	";",	"<",	"=",	">",	"?",	"@",	"[",	"\\",	"]",	"^",	"_",	"`",	"{",	"|",	"}",	"~",];
-
-var chosenCharacters = [];
-
-var gPassLength = 0;
 
 // PRIMARY FUNCTION =======================================
 function startGen() {
@@ -118,6 +116,7 @@ function startGen() {
 
 	finalPassword = generatePassword();
 	console.log(finalPassword);
+	return finalPassword;
 }
 
 // SECONDARY FUNCTIONS ====================================
@@ -153,6 +152,3 @@ function oneCheck(w, x, y, z) {
 		return false;
 	}
 }
-
-// TEMP - Auto Prompt =====================================
-startGen();
