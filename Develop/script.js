@@ -56,7 +56,7 @@ generateBtn.addEventListener("click", writePassword);
 function startGen() {
 	var gPassLength = getPassLength();
 	if (gPassLength === null) {
-		return;
+		return "CANCELLED";
 	}
 	console.log("passLength - password length is " + gPassLength);
 
@@ -82,7 +82,7 @@ function startGen() {
 
 	var passAspects = [cPassLower, cPassUpper, cPassNumber, cPassSpecial];
 	console.log(`startGen - password aspects: ${passAspects}`);
-	
+
 	var chosenCharacters = [];
 
 	if (passAspects[0]) {
